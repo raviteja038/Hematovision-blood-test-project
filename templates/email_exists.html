@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Email Exists - HematoVision</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #ff0000, #ff7300, #ff0066, #9900ff);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+    color: white;
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.error-box {
+    background: rgba(0,0,0,0.4);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+    width: 320px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(40px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+h2 {
+    color: #ff4d4d;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    from {text-shadow: 0 0 5px white;}
+    to {text-shadow: 0 0 20px red;}
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="error-box">
+    <h2>Email Already Exists ⚠️</h2>
+    <p>This email is already registered. Please login or use another email.</p>
+
+    <form action="/register">
+        <button type="submit">Go Back</button>
+    </form>
+</div>
+
+</body>
+</html>

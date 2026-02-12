@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Result - HematoVision</title>
+
+<style>
+/* Animated Gradient Background */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #00c9ff, #92fe9d, #ff416c, #ff4b2b);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color: white;
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Glass Card Container */
+.result-box {
+    background: rgba(0,0,0,0.35);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(40px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* Glowing Heading */
+h2 {
+    margin-bottom: 20px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {text-shadow: 0 0 10px #fff;}
+    to {text-shadow: 0 0 25px #00ffd5;}
+}
+
+/* Image Styling */
+img {
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    transition: 0.4s;
+}
+
+img:hover {
+    transform: scale(1.08);
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 25px;
+    margin: 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+/* Back Button Gradient */
+.back-btn {
+    background: linear-gradient(45deg, #00c9ff, #0072ff);
+}
+
+/* Logout Button Gradient */
+.logout-btn {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="result-box">
+
+<h2>Prediction: {{ prediction }}</h2>
+
+<img src="{{ url_for('static', filename=img_path) }}" width="250">
+
+<br><br>
+
+<a href="/home">
+    <button class="btn back-btn">Back</button>
+</a>
+
+<a href="/logout">
+    <button class="btn logout-btn">Sign Out</button>
+</a>
+
+</div>
+
+</body>
+</html>

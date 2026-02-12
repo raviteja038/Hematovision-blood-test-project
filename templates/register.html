@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register - HematoVision</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #ff9966, #ff5e62, #00c9ff, #92fe9d);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color: white;
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.register-box {
+    background: rgba(0,0,0,0.35);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+    width: 320px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(40px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+h2 {
+    margin-bottom: 20px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {text-shadow: 0 0 10px #fff;}
+    to {text-shadow: 0 0 25px #00eaff;}
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #24c6dc, #514a9d);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px white;
+}
+
+a {
+    color: #ffd700;
+    text-decoration: none;
+}
+
+a:hover {
+    text-shadow: 0 0 8px #ffd700;
+}
+
+/* UPDATED ERROR MESSAGE */
+.error-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    background: rgba(255, 0, 0, 0.25);
+    color: #ffe6e6;
+    backdrop-filter: blur(4px);
+    animation: errorGlow 1.2s infinite;
+}
+
+@keyframes errorGlow {
+    0% {
+        text-shadow: 0 0 5px #ff0000;
+        transform: scale(1);
+    }
+    50% {
+        text-shadow: 0 0 20px #ff4d4d;
+        transform: scale(1.04);
+    }
+    100% {
+        text-shadow: 0 0 5px #ff0000;
+        transform: scale(1);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="register-box">
+    <h2>Register</h2>
+
+    <form method="POST" action="/register">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <!-- EMAIL EXISTS / ERROR MESSAGE -->
+    {% if error %}
+    <div class="error-message">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <p>Already have account? <a href="/login">Login</a></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HematoVision - Blood Cell Classification</title>
+
+<style>
+/* Background Gradient Animation */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    height: 100vh;
+    background: linear-gradient(-45deg, #ff4e50, #fc913a, #f9d423, #24c6dc);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Card Container */
+.container {
+    margin-top: 80px;
+    background: rgba(0,0,0,0.4);
+    padding: 40px;
+    border-radius: 20px;
+    display: inline-block;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    animation: fadeIn 2s ease;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* Heading Glow */
+h2 {
+    font-size: 36px;
+    text-shadow: 0 0 15px #fff;
+}
+
+/* File Input */
+input[type="file"] {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: white;
+    color: black;
+}
+
+/* Animated Button */
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(45deg, #ff512f, #dd2476);
+    transition: 0.4s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #fff;
+}
+
+/* Navigation Links */
+a {
+    text-decoration: none;
+    color: white;
+    margin: 15px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: yellow;
+    text-shadow: 0 0 10px yellow;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>HematoVision</h2>
+    <p>Upload a blood cell image for intelligent classification</p>
+
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required><br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    <br>
+    <a href="/about">About</a> |
+    <a href="/contact">Contact</a>
+</div>
+
+</body>
+</html>
