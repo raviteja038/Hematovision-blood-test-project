@@ -81,7 +81,7 @@ python app.py
 Open browser:
 
 http://localhost:5000
-🧪 Model Workflow
+🧪 Model Workflow.
 
 User uploads image
 
